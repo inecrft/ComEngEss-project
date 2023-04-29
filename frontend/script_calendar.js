@@ -33,7 +33,7 @@ function initCalendar() {
   const day = firstDay.getDay();
   const nextDays = 7 - lastDay.getDay() - 1;
 
-  date.innerHTML = `<h2>${months[month] + " " + year}</h2>`;
+  date.innerHTML = `<h3>${months[month] + " " + year}</h3>`;
 
   let days = "";
   //add blank prev date
