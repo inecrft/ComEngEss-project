@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/auth_app", coursevilleController.authApp);
 router.get("/access_token", coursevilleController.accessToken);
-router.get("/get_profile_info", coursevilleController.getProfileInformation);
+router.get("/get_user_id", coursevilleController.getUserID);
 router.get("/get_courses", coursevilleController.getCourses);
 router.get(
   "/get_course_assignments/:cv_cid",

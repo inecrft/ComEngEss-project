@@ -1,50 +1,126 @@
 const backendIPAddress = "127.0.0.1:3000";
+const assignmentsContainer = document.querySelector(".assignments");
 
 const authorizeApplication = () => {
   window.location.href = `http://${backendIPAddress}/courseville/auth_app`;
 };
 
-const getUserProfile = async () => {
+const getUserID = async () => {
   const options = {
     method: "GET",
     credentials: "include",
   };
-  await fetch(
-    `http://${backendIPAddress}/courseville/get_profile_info`,
-    options
-  )
+  await fetch(`http://${backendIPAddress}/courseville/get_user_id`, options)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.user);
+      console.log(data.data.student.id);
       document.getElementById(
-        "eng-name-info"
-      ).innerHTML = `${data.user.title_en} ${data.user.firstname_en} ${data.user.lastname_en}`;
-      document.getElementById(
-        "thai-name-info"
-      ).innerHTML = `${data.user.title_th} ${data.user.firstname_th} ${data.user.lastname_th}`;
+        "user-id"
+      ).innerHTML = `${data.data.student.id}'s`;
     })
     .catch((error) => console.error(error));
 };
 
-// TODO #3.3: Send Get Courses ("GET") request to backend server and filter the response to get Comp Eng Ess CV_cid
-//            and display the result on the webpage
-const getCompEngEssCid = async () => {
-  document.getElementById("ces-cid-value").innerHTML = "";
-  console.log(
-    "This function should fetch 'get courses' route from backend server and find cv_cid value of Comp Eng Ess."
-  );
+const courses_array = [];
+const getCourses = async () => {
+  const options = {
+    method: "GET",
+    credentials: "include",
+  };
+  await fetch(`http://${backendIPAddress}/courseville/get_courses`, options)
+    .then((response) => response.json())
+    .then((data) => data.data.student)
+    .then((courses) => {
+      for (let i = 0; i < courses.length; i++) {
+        const temp = {
+          cv_cid: courses[i].cv_cid,
+          course_no: courses[i].course_no,
+        };
+        courses_array.push(temp);
+      }
+      console.log(courses_array);
+    })
+    .catch((error) => console.error(error));
 };
 
-// TODO #3.5: Send Get Course Assignments ("GET") request with cv_cid to backend server
-//            and create Comp Eng Ess assignments table based on the response (itemid, title)
-const createCompEngEssAssignmentTable = async () => {
-  const table_body = document.getElementById("main-table-body");
-  table_body.innerHTML = "";
-  const cv_cid = document.getElementById("ces-cid-value").innerHTML;
+const createAssignmentList = async () => {
+  let today = new Date();
 
-  console.log(
-    "This function should fetch 'get course assignments' route from backend server and show assignments in the table."
-  );
+  for (let i = 0; i < courses_array.length; i++) {
+    const cv_cid = courses_array[i].cv_cid;
+    let assignments;
+
+    const options = {
+      method: "GET",
+      credentials: "include",
+    };
+    await fetch(
+      `http://${backendIPAddress}/courseville/get_course_assignments/${cv_cid}`,
+      options
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.data);
+        assignments = data.data;
+      })
+      .catch((error) => console.error(error));
+
+    for (let i = 0; i < assignments.length; i++) {
+      if (assignments[i].duedate != null) {
+        const ymd = assignments[i].duedate.split("-");
+        const int_ymd = ymd.map((date_string) => {
+          return parseInt(date_string);
+        });
+        if (int_ymd[0] < today.getFullYear()) {
+          continue;
+        } else if (
+          int_ymd[0] == today.getFullYear() &&
+          int_ymd[1] < today.getMonth() + 1
+        ) {
+          continue;
+        } else if (
+          int_ymd[1] == today.getMonth() + 1 &&
+          int_ymd[2] < today.getDate()
+        ) {
+          continue;
+        }
+      } else {
+        continue;
+      }
+
+      assignmentsContainer.innerHTML += `
+      <div class="assignment">
+        <div class="title">
+          <i>-</i>
+          <h3 class="assignment-title">${assignments[i].title}</h3>
+        </div>
+        <div class="due-date">${assignments[i].duedate}</div>
+      </div>
+      `;
+    }
+
+    // assignments.forEach((assignment) => {
+
+    //     if (int_ymd[0] < today.getFullYear) {
+    //       return;
+    //     } else if (int_ymd[1] < today.getMonth) {
+    //       return;
+    //     } else if (int_ymd[2] < today.getDate) {
+    //       return;
+    //     }
+    //   }
+
+    //   assignmentsContainer.innerHTML += `
+    //   <div class="assignment">
+    //     <div class="title">
+    //       <i>-</i>
+    //       <h3 class="assignment-title">${assignment.title}</h3>
+    //     </div>
+    //     <div class="due-date">${assignment.duedate}</div>
+    //   </div>
+    //   `;
+    // });
+  }
 };
 
 const logout = async () => {
