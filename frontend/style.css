@@ -32,9 +32,10 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     border-radius: 5px;
     background-color: white;
+    
 }
 .calendar .month {
     width: 100%;
@@ -71,20 +72,22 @@ body {
     padding: 0 20px;
     margin-bottom: 20px;
 }
-.calendar .days .day {
+ .day {
     width: 14.28%;
     height: 90px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
+    padding: 1%;
+    justify-content: right;
     border: 1px solid grey;
 }
 .day_today {
     width: 14.28%;
     height: 90px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 1%;
+    justify-content: right; 
     border: 3px solid rgb(225, 25, 25);
 }
 

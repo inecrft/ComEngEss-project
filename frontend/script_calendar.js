@@ -33,14 +33,14 @@ function initCalendar() {
   const day = firstDay.getDay();
   const nextDays = 7 - lastDay.getDay() - 1;
 
-  date.innerHTML = months[month] + " " + year;
+  date.innerHTML = `<h2>${months[month] + " " + year}</h2>`;
 
   let days = "";
-
+  //add blank prev date
   for (let i = day; i > 0; i--) {
     days += `<div class="day prev-date"></div>`;
   }
-
+  //add days of that month
   for (let i = 1; i <= lastDate; i++) {
     if (
       i == new Date().getDate() &&
@@ -52,7 +52,7 @@ function initCalendar() {
       days += `<div class="day">${i}</div>`;
     }
   }
-
+  //add blank next date
   for (let i = 1; i <= nextDays; i++) {
     days += `<div class="day next-date"></div>`;
   }
