@@ -38,7 +38,7 @@ function initCalendar() {
   let days = "";
 
   for (let i = day; i > 0; i--) {
-    days += `<div class="day prev-date">${prevDays - i + 1}</div>`;
+    days += `<div class="day prev-date"></div>`;
   }
 
   for (let i = 1; i <= lastDate; i++) {
@@ -47,14 +47,14 @@ function initCalendar() {
       year == new Date().getFullYear() &&
       month == new Date().getMonth()
     ) {
-      days += `<div class="day today">${i}</div>`;
+      days += `<div class="day_today">${i}</div>`;
     } else {
       days += `<div class="day">${i}</div>`;
     }
   }
 
   for (let i = 1; i <= nextDays; i++) {
-    days += `<div class="day next-date">${i}</div>`;
+    days += `<div class="day next-date"></div>`;
   }
 
   daysContainer.innerHTML = days;

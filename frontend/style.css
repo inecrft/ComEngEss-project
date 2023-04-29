@@ -79,6 +79,15 @@ body {
     justify-content: center;
     border: 1px solid grey;
 }
+.day_today {
+    width: 14.28%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgb(225, 25, 25);
+}
+
 .calendar .days .event {
     position: relative;
 }
