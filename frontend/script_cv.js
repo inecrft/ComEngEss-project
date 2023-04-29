@@ -59,6 +59,10 @@ function getDueTimeInClock(dueTime) {
     return [hourInDay, minuteInHour, secondInMinute];
 }
 
+function pad(n) {
+    return n < 10 ? "0" + n : n;
+}
+
 const createAssignmentList = async () => {
     assignmentsContainer.innerHTML = `
   <table class="assignment-table">
@@ -126,15 +130,22 @@ const createAssignmentList = async () => {
             }
 
             let dueTimeArray = getDueTimeInClock(assignments[i].duetime);
+            let dueDateArray = assignments[i].duedate.split("-");
 
             assignmentsTable.innerHTML += `
-      <tr class="assignment" id="${cv_cid}-${assignments[i].itemid}">
-        <td><a href="https://www.mycourseville.com/?q=courseville/course/${cv_cid}">${courseTitle}</a></td>
-        <td><a href="https://www.mycourseville.com/?q=courseville/worksheet/${cv_cid}/${assignments[i].itemid}">${assignments[i].title}</a></td>
-        <td>${assignments[i].duedate}</td>
-        <td>${dueTimeArray[0]}:${dueTimeArray[1]}:${dueTimeArray[2]}</td>
-      </tr>
-      `;
+            <tr class="assignment" id="${cv_cid}-${assignments[i].itemid}">
+                <td><a href="https://www.mycourseville.com/?q=courseville/course/${cv_cid}">${courseTitle}</a></td>
+                <td><a href="https://www.mycourseville.com/?q=courseville/worksheet/${cv_cid}/${
+                assignments[i].itemid
+            }">${assignments[i].title}</a></td>
+                <td>${dueDateArray[2]}/${dueDateArray[1]}/${
+                dueDateArray[0]
+            }</td>
+                <td>${pad(dueTimeArray[0])}:${pad(dueTimeArray[1])}:${pad(
+                dueTimeArray[2]
+            )}</td>
+            </tr>
+            `;
         }
 
         // assignments.forEach((assignment) => {
