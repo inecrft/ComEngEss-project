@@ -82,3 +82,20 @@ function nextMonth() {
 
 prev.addEventListener("click", prevMonth);
 next.addEventListener("click", nextMonth);
+
+const addReminderContainer = document.querySelector(".add-reminder-wrapper"),
+  addReminderCloseBtn = document.querySelector(".close"),
+  addReminderTitle = document.querySelector(".reminder-name"),
+  addReminderDate = document.querySelector(".reminder-date");
+
+addReminderCloseBtn.addEventListener("click", () => {
+  addReminderContainer.classList.remove("active");
+});
+
+addReminderTitle.addEventListener("input", (e) => {
+  addReminderTitle.value = addReminderTitle.value.slice(0, 50);
+});
+
+addReminderDate.addEventListener("input", (e) => {
+  console.log(addReminderDate.value);
+});

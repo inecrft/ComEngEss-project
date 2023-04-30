@@ -18,11 +18,10 @@ const getUserID = async () => {
     .then((response) => response.json())
     .then((data) => {
       console.log(data.data.student.id);
-      document.getElementById(
-        "user-id"
-      ).innerHTML = `${data.data.student.id}'s`;
+      document.getElementById("user-id").innerHTML = `${data.data.student.id}`;
     })
     .catch((error) => console.error(error));
+  document.dispatchEvent(new Event("afterGetID"));
 };
 
 const courses_array = [];
