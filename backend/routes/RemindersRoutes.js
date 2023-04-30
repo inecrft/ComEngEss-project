@@ -5,6 +5,6 @@ const router = express.Router();
 
 router.post("/users", RemindersController.addNewUser);
 router.get("/", RemindersController.getReminders);
-router.put("/", RemindersController.addReminder);
+router.put("/", RemindersController.putReminder);
 
 module.exports = router;

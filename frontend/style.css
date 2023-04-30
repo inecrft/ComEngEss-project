@@ -274,3 +274,14 @@ a {
     cursor: pointer;
     padding: 5px 10px;
 }
+.show-assignment-btn {
+    text-align: center;
+    height: 30px;
+    outline: none;
+    border: 1px solid grey;
+    color: white;
+    background-color: grey;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+}

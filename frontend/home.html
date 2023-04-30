@@ -33,12 +33,21 @@
 
         </div>
 
+        <div class="selected-reminder-wrapper active">
+        </div>
+
         <div class="add-reminder-wrapper active">
           <div class="add-reminder-header">
             <div class="title">Add Reminder</div>
             <i class="close">x</i>
           </div>
           <div class="add-reminder-body">
+            <div class="add-reminder-input">
+              <button class="show-assignment-btn" onclick=showAssignmentInReminder()>Show Assignment</button>
+              <select id="assignment-to-add" class="assignment-to-add">
+                <option value='0'>No assignment selected</option>
+              </select>
+            </div>
             <div class="add-reminder-input">
               <input type="text" name="reminder-name" id="reminder-name" placeholder="Reminder Name" class="reminder-name">
             </div>
