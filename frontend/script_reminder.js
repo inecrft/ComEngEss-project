@@ -68,6 +68,28 @@ const addReminder = async () => {
     .catch((error) => console.error(error));
 };
 
+const deleteReminder = async (index) => {
+  remindersData.splice(index, 1);
+
+  const itemToAdd = {
+    user_id: user_id,
+    reminders: remindersData,
+  };
+
+  const options = {
+    method: "PUT",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(itemToAdd),
+  };
+
+  await fetch(`http://${backendIPAddress}/reminders`, options)
+    .then((response) => console.log(response))
+    .catch((error) => console.error(error));
+};
+
 document.addEventListener("afterGetID", async function () {
   user_id = document.getElementById("user-id").innerHTML;
   await getReminders();

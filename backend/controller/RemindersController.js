@@ -55,11 +55,3 @@ exports.addReminder = async (req, res) => {
     res.status(500).send(err);
   }
 };
-
-// TODO #1.3: Delete an item from DynamDB
-exports.deleteItem = async (req, res) => {
-  const item_id = req.params.item_id;
-
-  // You should change the response below.
-  res.send("This route should delete an item in DynamoDB with item_id.");
-};
