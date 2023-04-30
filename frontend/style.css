@@ -97,19 +97,19 @@ body {
     border: 3px solid rgb(225, 25, 25);
 }
 
-.calendar .days .event {
+.calendar .days .hasReminder {
     position: relative;
 }
-.calendar .days .event::after {
+.calendar .days .hasReminder::after {
     content: "";
     position: absolute;
     bottom: 10%;
     left: 50%;
-    width: 75%;
+    width: 50%;
     height: 6px;
     border-radius: 30px;
     transform: translateX(-50%);
-    background-color: black;
+    background-color: red;
 }
 .container .right {
     position: relative;

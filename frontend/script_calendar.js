@@ -42,14 +42,35 @@ function initCalendar() {
   }
   //add days of that month
   for (let i = 1; i <= lastDate; i++) {
+    let hasReminder = false;
+    for (let j = 0; j < remindersData.length; j++) {
+      let reminderDate = remindersData[j].reminder_date;
+      let ymd = reminderDate.split("-");
+      let int_ymd = ymd.map((date_string) => {
+        return parseInt(date_string);
+      });
+      if (int_ymd[0] == year && int_ymd[1] == month + 1 && int_ymd[2] == i) {
+        hasReminder = true;
+        break;
+      }
+    }
+
     if (
       i == new Date().getDate() &&
       year == new Date().getFullYear() &&
       month == new Date().getMonth()
     ) {
-      days += `<div class="day_today">${i}</div>`;
+      if (hasReminder) {
+        days += `<div class="day_today hasReminder">${i}</div>`;
+      } else {
+        days += `<div class="day_today">${i}</div>`;
+      }
     } else {
-      days += `<div class="day">${i}</div>`;
+      if (hasReminder) {
+        days += `<div class="day hasReminder">${i}</div>`;
+      } else {
+        days += `<div class="day">${i}</div>`;
+      }
     }
   }
   //add blank next date
@@ -82,20 +103,3 @@ function nextMonth() {
 
 prev.addEventListener("click", prevMonth);
 next.addEventListener("click", nextMonth);
-
-const addReminderContainer = document.querySelector(".add-reminder-wrapper"),
-  addReminderCloseBtn = document.querySelector(".close"),
-  addReminderTitle = document.querySelector(".reminder-name"),
-  addReminderDate = document.querySelector(".reminder-date");
-
-addReminderCloseBtn.addEventListener("click", () => {
-  addReminderContainer.classList.remove("active");
-});
-
-addReminderTitle.addEventListener("input", (e) => {
-  addReminderTitle.value = addReminderTitle.value.slice(0, 50);
-});
-
-addReminderDate.addEventListener("input", (e) => {
-  console.log(addReminderDate.value);
-});
