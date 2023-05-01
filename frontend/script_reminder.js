@@ -63,6 +63,12 @@ const addReminder = async () => {
 
   remindersData.push(reminderToAdd);
   initCalendar();
+  if (reminderPage.classList.contains("active")) {
+    showReminder(selectedDay);
+  }
+  document.querySelector(".reminder-name").value = "";
+  document.querySelector(".reminder-date").value = "";
+  document.querySelector(".assignment-to-add").value = 0;
 
   const itemToAdd = {
     user_id: user_id,
