@@ -5,7 +5,6 @@ const calendar = document.querySelector(".calendar"),
   next = document.querySelector(".next");
 
 let today = new Date();
-let activeDay;
 let month = today.getMonth();
 let year = today.getFullYear();
 
@@ -61,9 +60,9 @@ function initCalendar() {
       month == new Date().getMonth()
     ) {
       if (hasReminder) {
-        days += `<div class="day_today hasReminder">${i}</div>`;
+        days += `<div class="day today hasReminder">${i}</div>`;
       } else {
-        days += `<div class="day_today">${i}</div>`;
+        days += `<div class="day today">${i}</div>`;
       }
     } else {
       if (hasReminder) {
@@ -79,6 +78,7 @@ function initCalendar() {
   }
 
   daysContainer.innerHTML = days;
+  addListener();
 }
 
 initCalendar();

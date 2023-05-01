@@ -17,7 +17,7 @@ body {
 .container {
     position: relative;
     width: 95%;
-    height: 872px;
+    height: 875px;
     margin: 0 auto;
     padding: 5px;
     display: flex;
@@ -31,13 +31,73 @@ body {
 .calendar {
     position: relative;
     width: 100%;
-    height: 70%;
+    height: 65%;
     /* display: flex;
   flex-direction: column;
   flex-wrap: wrap; */
     /* justify-content: space-between; */
     border-radius: 5px;
     background-color: white;
+}
+.reminder-wrapper {
+    position: absolute;
+    top: 25px;
+    left: 20.25%;
+    width: 36.5%;
+    max-height: 0px;
+    height: 65%;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: white;
+    transform: translate(-50%);
+    transition: max-height 0.5s;
+}
+.reminder-wrapper.active {
+    max-height: 537px;
+}
+.reminder-header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: black;
+    border-bottom: 1px solid lightgrey;
+}
+.reminder-header .close {
+    cursor: pointer;
+}
+.reminders {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px;
+}
+.reminders .reminder {
+    position: relative;
+    width: 95%;
+    min-height: 70px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0 20px;
+}
+.reminders .reminder .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.reminders .reminder .title .reminder-title {
+    margin-left: 20px;
+}
+.reminders .reminder .title .delete {
+    cursor: pointer;
 }
 .calendar .month {
     font-weight: bold;
@@ -86,8 +146,12 @@ body {
     align-items: center;
     justify-content: center;
     border: 1px solid grey;
+    cursor: pointer;
 }
-.day_today {
+.calendar .days .prev-date, .calendar .days .next-date {
+    cursor: default;
+}
+.calendar .days .today {
     font-size: 1.5vw;
     width: 14.28%;
     height: 100%;
@@ -95,8 +159,8 @@ body {
     align-items: center;
     justify-content: center;
     border: 3px solid rgb(225, 25, 25);
+    cursor: pointer;
 }
-
 .calendar .days .hasReminder {
     position: relative;
 }
@@ -210,15 +274,12 @@ a {
     bottom: 20px;
     left: 20%;
     width: 35%;
-    max-height: 0px;
+    max-height: 300px;
     overflow: hidden;
     border-radius: 5px;
     background-color: white;
     transform: translate(-50%);
     transition: max-height 0.5s;
-}
-.add-reminder-wrapper.active {
-    max-height: 300px;
 }
 .add-reminder-header {
     width: 100%;
@@ -257,6 +318,9 @@ a {
     border-bottom: 1px solid lightgrey;
     padding: 0 10px;
     color: grey;
+}
+.add-reminder-body .add-reminder-input .assignment-to-add {
+    width: 60%;
 }
 .add-reminder-footer {
     display: flex;
