@@ -5,10 +5,6 @@ const authorizeApplication = () => {
   window.location.href = `http://${backendIPAddress}/courseville/auth_app`;
 };
 
-const getGroupNumber = () => {
-  return 15;
-};
-
 const getUserID = async () => {
   const options = {
     method: "GET",
@@ -83,7 +79,6 @@ const createAssignmentList = async () => {
   let today = new Date();
 
   for (let i = 0; i < courses_array.length; i++) {
-    //console.log(courses_array[i]);
     const cv_cid = courses_array[i].cv_cid;
     const courseTitle = courses_array[i].title;
     let assignments;
@@ -98,7 +93,6 @@ const createAssignmentList = async () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.data);
         assignments = data.data;
       })
       .catch((error) => console.error(error));
@@ -146,33 +140,9 @@ const createAssignmentList = async () => {
             </tr>
             `;
     }
-
-    // assignments.forEach((assignment) => {
-
-    //     if (int_ymd[0] < today.getFullYear) {
-    //       return;
-    //     } else if (int_ymd[1] < today.getMonth) {
-    //       return;
-    //     } else if (int_ymd[2] < today.getDate) {
-    //       return;
-    //     }
-    //   }
-
-    //   assignmentsContainer.innerHTML += `
-    //   <div class="assignment">
-    //     <div class="title">
-    //       <i>-</i>
-    //       <h3 class="assignment-title">${assignment.title}</h3>
-    //     </div>
-    //     <div class="due-date">${assignment.duedate}</div>
-    //   </div>
-    //   `;
-    // });
   }
 };
 
 const logout = async () => {
   window.location.href = `http://${backendIPAddress}/courseville/logout`;
 };
-
-//document.getElementById("group-id").innerHTML = getGroupNumber();

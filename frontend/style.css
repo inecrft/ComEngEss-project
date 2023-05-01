@@ -244,31 +244,6 @@ body {
 a {
     color: #1722c0;
 }
-/* .assignments .assignment {
-    position: relative;
-    width: 95%;
-    min-height: 70px;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    padding: 0 20px;
-    padding-left: 50px;
-    cursor: pointer;
-    background-color: lightgray;
-}
-.assignments .assignment .title {
-    display: flex;
-    align-items: center;
-    pointer-events: none;
-}
-.assignments .assignment .title .assignment-title {
-    margin-left: 20px;
-}
-.assignments .assignment .title .due-date {
-    margin-left: 15px;
-    pointer-events: none;
-} */
-
 .add-reminder-wrapper {
     position: absolute;
     bottom: 20px;

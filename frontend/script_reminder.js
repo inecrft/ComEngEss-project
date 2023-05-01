@@ -137,7 +137,6 @@ document.addEventListener("afterGetID", async function () {
   if (!isAlreadyInDB) {
     await addNewUser();
   }
-  console.log(remindersData);
 });
 
 const reminderPage = document.querySelector(".reminder-wrapper"),
@@ -185,8 +184,6 @@ function getSelectedDay(date) {
   let header = "";
   const day = new Date(year, month, date);
   const dayName = day.toString().split(" ")[0];
-  console.log(dayName);
-  console.log(date + " " + months[month] + " " + year);
   header = `<h2 class="date">${date} ${months[month]} ${year}</h2>
   <i class="close">x</i>`;
   reminderHeader.innerHTML = header;
@@ -200,7 +197,6 @@ function showReminder(date) {
     let int_ymd = ymd.map((date_string) => {
       return parseInt(date_string);
     });
-    console.log(int_ymd);
 
     if (year == int_ymd[0] && month + 1 == int_ymd[1] && date == int_ymd[2]) {
       reminders += `<div class="reminder">

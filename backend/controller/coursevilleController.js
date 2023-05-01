@@ -168,14 +168,6 @@ exports.getCourseAssignments = (req, res) => {
   }
 };
 
-// Outstanding #2
-exports.getAssignmentDetail = (req, res) => {
-  const itemid = req.params.item_id;
-  // You should change the response below.
-  res.send("This route should get assignment details based on item_id.");
-  res.end();
-};
-
 exports.logout = (req, res) => {
   req.session.destroy();
   res.redirect(`http://${process.env.frontendIPAddress}/index.html`);
