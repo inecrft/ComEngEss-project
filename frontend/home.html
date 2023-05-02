@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <title>Assignment Reminder Page</title>
     <link rel="stylesheet" href="style.css"></link>
+    <link rel="stylesheet" href="calander.css"></link>
+    <link rel="stylesheet" href="reminder.css"></link>
+    <link rel="stylesheet" href="assignment.css"></link>
+    <link rel="stylesheet" href="add_reminder.css"></link>
     <script src="script_cv.js" defer></script>
+    
   </head>
   <body onload=getUserID();getCourses();>
     <div class="container">
@@ -47,8 +52,9 @@
 
         <div class="add-reminder-wrapper">
           <div class="add-reminder-header">
-            <div class="title">Add Reminder</div>
+            <h3>Add Reminder</h3>
           </div>
+
           <div class="add-reminder-body">
             <div class="add-reminder-input">
               <button class="show-assignment-btn" onclick=showAssignmentInReminder()>Show Assignment</button>
@@ -66,6 +72,7 @@
           <div class="add-reminder-footer">
             <button class="add-reminder-btn" onclick=addReminder()>Add Reminder</button>
           </div>
+          
         </div>
 
       </div>

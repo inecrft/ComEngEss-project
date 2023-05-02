@@ -1,0 +1,102 @@
+.calendar {
+    position: absolute;
+    width: 675px;
+    height: 705px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 15px; 
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+}
+.month {
+    position: relative;
+    font-weight: bold;
+    font-size: 2vw;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+.date, .next , .prev{
+    display: inline-flex;
+}
+.next , .prev, .day{
+    cursor: pointer;
+    
+}
+.week {
+    color: #A89AFF;
+    position: relative;
+    font-size: 1.8vw;
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+.week div {
+    width: 14.28%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.days {
+    font-size: 1.5vw;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    
+}
+.day {
+    width: 14.28%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.dot {
+    height: 40px;
+    width: 40px;
+    background-color: #bbb;
+    border-radius: 50%;
+    text-align: center ;
+    vertical-align: middle;
+}
+
+.prev-date,.next-date {
+    cursor: default;
+    color: gray;
+}
+
+#today{
+    border: 3px solid #A89AFF;
+}
+
+.calendar .days .hasReminder {
+    position: relative;
+}
+.calendar .days .hasReminder::after {
+    content: "";
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    width: 50%;
+    height: 6px;
+    border-radius: 30px;
+    transform: translateX(-50%);
+    background-color: red;
+}
+

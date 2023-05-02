@@ -1,0 +1,89 @@
+.add-reminder-wrapper {
+    position: absolute;
+    
+    top: 800px;
+    /* left: 20%; */
+    width: 675px;
+    max-height: 300px;
+    overflow: hidden;
+  
+    background-color: white;
+    /* transform: translate(-50%);
+    transition: max-height 0.5s; */
+
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.add-reminder-header {
+ 
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: black;
+    border-bottom: 1px solid white;
+}
+.add-reminder-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px;
+}
+
+.add-reminder-input {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.show-assignment-btn{
+    background: #C7DDFF;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    color: black;
+}
+
+.add-reminder-body .add-reminder-input input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    padding: 0 10px;
+    color: grey;
+
+    background: #E4ECFF;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+ .assignment-to-add {
+    width: 80%;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+}
+.add-reminder-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    
+    
+}
+.add-reminder-btn {
+    height: 40px;
+    outline: none;
+    background: #2139B9;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: white;
+}

@@ -37,7 +37,7 @@ function initCalendar() {
   let days = "";
   //add blank prev date
   for (let i = day; i > 0; i--) {
-    days += `<div class="day prev-date"></div>`;
+    days += `<div class="day prev-date"><div class="dot">${prevDays-i+1}</div></div>`;
   }
   //add days of that month
   for (let i = 1; i <= lastDate; i++) {
@@ -60,21 +60,21 @@ function initCalendar() {
       month == new Date().getMonth()
     ) {
       if (hasReminder) {
-        days += `<div class="day today hasReminder">${i}</div>`;
+        days += `<div class="day today hasReminder"><div class="dot">${i}</div></div>`;
       } else {
-        days += `<div class="day today">${i}</div>`;
+        days += `<div class="day", id="today"><div class="dot">${i}</div></div>`;
       }
     } else {
       if (hasReminder) {
-        days += `<div class="day hasReminder">${i}</div>`;
+        days += `<div class="day hasReminder"><div class="dot">${i}</div></div>`;
       } else {
-        days += `<div class="day">${i}</div>`;
+        days += `<div class="day"><div class="dot">${i}</div></div>`;
       }
     }
   }
   //add blank next date
   for (let i = 1; i <= nextDays; i++) {
-    days += `<div class="day next-date"></div>`;
+    days += `<div class="day next-date"><div class="dot">${i}</div></div>`;
   }
 
   daysContainer.innerHTML = days;
