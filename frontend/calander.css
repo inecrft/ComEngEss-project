@@ -25,10 +25,11 @@
 .date, .next , .prev{
     display: inline-flex;
 }
-.next , .prev, .day{
+.next , .prev, .day {
     cursor: pointer;
     
 }
+
 .week {
     color: #A89AFF;
     position: relative;
@@ -68,14 +69,17 @@
    
 }
 .dot {
-    height: 40px;
-    width: 40px;
-    background-color: #bbb;
+    height: 48px;
+    width: 48px;
+    background-color: white;
     border-radius: 50%;
     text-align: center ;
     vertical-align: middle;
 }
-
+.dot:hover{
+    background: #DFE8FF;
+box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+}
 .prev-date,.next-date {
     cursor: default;
     color: gray;
