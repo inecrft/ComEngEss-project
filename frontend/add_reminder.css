@@ -4,7 +4,7 @@
     top: 800px;
     /* left: 20%; */
     width: 675px;
-    max-height: 300px;
+    max-height: 500px;
     overflow: hidden;
   
     background-color: white;
@@ -49,6 +49,7 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
     color: black;
+    cursor: pointer;
 }
 
 .add-reminder-body .add-reminder-input input {
@@ -74,7 +75,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 5px;
     
     
 }

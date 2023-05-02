@@ -1,39 +1,58 @@
-.assignments {
-    width: 100%;
-    height: 100%;
-    max-height: 90%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    display: block;
-    flex-direction: column;
-    border-radius: 15px;
-}
+.head {
+    position: relative;
+    font-weight: bold;
+    font-size: 2vw;
+    color: rgb(35, 35, 35);
 
+    width: 100%;
+    height: 50px;
+    
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    padding-left: 1vw;
+    margin-bottom: 5vh;
+}
 .show-button {
     width: 17vw;
     height: 4vh;
-    font-weight: bold;
     font-size: 1.1vw;
-    background: rgb(175, 176, 228);
-    color: #272e63;
-    border-radius: 2vw;
+   
+    background: #C7DDFF;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    cursor: pointer;
 }
 
+.assignments {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    max-height: 90%;
+    /* overflow-x: hidden;
+    overflow-y:auto; */
+    border-radius: 15px;
+
+}
 
 .assignment-table {
     /* border-spacing: 2px; */
     border-collapse: collapse;
+
 }
 
 .assignment-table > thead {
     font-size: 1.5vw;
-    background: rgb(33, 34, 97);
+    background: #003BD1;
     color: #e5e0f8;
 }
 
 .assignment-table > tbody {
     font-size: 1.2vw;
-    background: rgb(231, 232, 255);
+    background: #D0E9FF;
     color: #181e47;
 }
 
@@ -41,22 +60,12 @@
     padding: 5px;
 }
 
-.assignment-table td {
-    padding: 5px;
+td {
+    padding: 10px;
     border: 2px inset #3d4894;
+    overflow-x: hidden;
 }
 
 a {
     color: #1722c0;
-}
-.show-assignment-btn {
-    text-align: center;
-    height: 30px;
-    outline: none;
-    border: 1px solid grey;
-    color: white;
-    background-color: grey;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 5px 10px;
 }
