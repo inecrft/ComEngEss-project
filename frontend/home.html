@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Assignment Reminder Page</title>
     <link rel="stylesheet" href="style.css"></link>
-    <link rel="stylesheet" href="calander.css"></link>
+    <link rel="stylesheet" href="calandar.css"></link>
     <link rel="stylesheet" href="reminder.css"></link>
     <link rel="stylesheet" href="assignment.css"></link>
     <link rel="stylesheet" href="add_reminder.css"></link>
@@ -37,45 +37,47 @@
 
           <div class="days"></div>
 
-        </div>
-
-        <div class="reminder-wrapper">
-          <div class="reminder-header">
-            <h2 class="date">test</h2>
-            <i class="close">x</i>
-          </div>
-          <div class="reminders"></div>
-        </div>
-
-        <div class="selected-reminder-wrapper active">
-        </div>
-
-        <div class="add-reminder-wrapper">
-          <div class="add-reminder-header">
-            <h3>Add Reminder</h3>
-          </div>
-
-          <div class="add-reminder-body">
-            <div class="add-reminder-input">
-              <button class="show-assignment-btn" onclick=showAssignmentInReminder()>Show Assignment</button>
-              <select id="assignment-to-add" class="assignment-to-add">
-                <option value='0'>No assignment selected</option>
-              </select>
+          <div class="reminder-wrapper">
+            <div class="reminder-header">
+              <h2 class="date">test</h2>
+              <i class="close">x</i>
             </div>
-            <div class="add-reminder-input">
-              <input type="text" name="reminder-name" id="reminder-name" placeholder="Reminder Name" class="reminder-name">
-            </div>
-            <div class="add-reminder-input">
-              <input type="date" id="reminder-date" name="reminder-date" class="reminder-date">
-            </div>
+            <div class="reminders"></div>
           </div>
-          <div class="add-reminder-footer">
-            <button class="add-reminder-btn" onclick=addReminder()>Add Reminder</button>
+  
+          <div class="selected-reminder-wrapper active">
           </div>
-          
+  
+          <div class="add-reminder-wrapper">
+            <div class="add-reminder-header">
+              <h3>Add Reminder</h3>
+            </div>
+  
+            <div class="add-reminder-body">
+              <div class="add-reminder-input">
+                <button class="show-assignment-btn" onclick=showAssignmentInReminder()>Show Assignment</button>
+                <select id="assignment-to-add" class="assignment-to-add">
+                  <option value='0'>No assignment selected</option>
+                </select>
+              </div>
+              <div class="add-reminder-input">
+                <input type="text" name="reminder-name" id="reminder-name" placeholder="Reminder Name" class="reminder-name">
+              </div>
+              <div class="add-reminder-input">
+                <input type="date" id="reminder-date" name="reminder-date" class="reminder-date">
+              </div>
+            </div>
+            <div class="add-reminder-footer">
+              <button class="add-reminder-btn" onclick=addReminder()>Add Reminder</button>
+            </div>
+            
+          </div>
+  
         </div>
 
-      </div>
+        </div>
+
+        
 
       <div class="right">
         <div class="head"><span id="user-id"></span>Assignment List&emsp;

@@ -1,18 +1,21 @@
 .reminder-wrapper {
     position: absolute;
     top: 25px;
-    left: 20.25%;
-    width: 36.5%;
+    left: 50%;
+    width: 100%;
     max-height: 0px;
-    height: 65%;
+    height: 100%;
     overflow: hidden;
     border-radius: 5px;
     background-color: white;
     transform: translate(-50%);
     transition: max-height 0.5s;
+
+    display: flex;
+    flex-direction: column;
 }
 .reminder-wrapper.active {
-    max-height: 537px;
+    max-height: 5370px;
 }
 .reminder-header {
     width: 100%;
